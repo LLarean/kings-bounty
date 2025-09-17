@@ -10,6 +10,16 @@ namespace KingsBounty
         [SerializeField] private int _sizeX;
         [SerializeField] private int _sizeY;
 
+        private GroundCell[,] _groundCells;
+
+        public CellType GetCellType(Vector2 position)
+        {
+            var cellPositionX = (int)position.x + _sizeX / 2;
+            var cellPositionY = (int)position.y + _sizeY / 2;
+            
+            return _groundCells[cellPositionX, cellPositionY].CellType;
+        }
+
         private void Start()
         {
             GenerateMap();
@@ -17,6 +27,8 @@ namespace KingsBounty
 
         private void GenerateMap()
         {
+            _groundCells = new GroundCell[_sizeX, _sizeY];
+
             for (int i = -_sizeX / 2; i < _sizeX / 2; i++)
             {
                 for (int j = -_sizeY / 2; j < _sizeY / 2; j++)
@@ -30,22 +42,16 @@ namespace KingsBounty
         {
             GroundCell cell = Instantiate(_prefab, transform);
             cell.transform.localPosition = new Vector3(xPosition, yPosition);
-            cell.SetColor(GetCellColor());
-        }
 
-        private Color GetCellColor()
-        {
+            cell.gameObject.name = $"Cell ({xPosition}, {yPosition})";
+
             var cellType = (CellType)Random.Range(0, Enum.GetNames(typeof(CellType)).Length);
+            cell.SetCellType(cellType);
+
+            var cellPositionX = xPosition + _sizeX / 2;
+            var cellPositionY = yPosition + _sizeY / 2;
             
-            return cellType switch
-            {
-                CellType.Ground => Color.gray,
-                CellType.Water => Color.cyan,
-                CellType.Mount => Color.magenta,
-                CellType.Forest => Color.green,
-                CellType.Sand => Color.yellow,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            _groundCells[cellPositionX, cellPositionY] = cell;
         }
     }
 }

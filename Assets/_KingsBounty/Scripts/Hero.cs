@@ -1,39 +1,61 @@
-using System;
 using UnityEngine;
 
 namespace KingsBounty
 {
     public class Hero : MonoBehaviour
     {
-        private Vector2 _vector2;
-        
+        [SerializeField] private GameMap _gameMap;
+
+        private Vector2 _currentPosition;
+        private Vector2 _velocity;
+
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                _vector2 = new Vector2(0, -1);
+                _velocity = new Vector2(0, -1);
             }
 
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                 _vector2 = new Vector2(0, 1);
-            }
-            
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                 _vector2 = new Vector2(-1, 0);
-            }
-            
-            if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                _vector2 = new Vector2(1, 0);
+                _velocity = new Vector2(0, 1);
             }
 
-            if (_vector2 != Vector2.zero)
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                transform.Translate(_vector2 );
-                _vector2 = Vector2.zero;
+                _velocity = new Vector2(-1, 0);
             }
+
+            if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                _velocity = new Vector2(1, 0);
+            }
+
+            if (_velocity == Vector2.zero) return;
+
+            var newPosition = _currentPosition + _velocity;
+
+            if (_gameMap.GetCellType(newPosition) == CellType.Water)
+            {
+                _velocity = Vector2.zero;
+                return;
+            }
+            
+            if (_gameMap.GetCellType(newPosition) == CellType.Mount)
+            {
+                _velocity = Vector2.zero;
+                return;
+            }
+            
+            if (_gameMap.GetCellType(newPosition) == CellType.Forest)
+            {
+                _velocity = Vector2.zero;
+                return;
+            }
+            
+            transform.Translate(_velocity);
+            _currentPosition = transform.position;
+            _velocity = Vector2.zero;
         }
     }
 }
