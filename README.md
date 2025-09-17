@@ -60,6 +60,13 @@ This is a personal learning project, but suggestions and ideas are always welcom
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/llarean/kings-bounty/blob/main/LICENSE) file for details.
 
+## Credits
+
+### Sprite Assets
+Special thanks to the creators of the sprite files used in this application:
+
+- **[David Baumgart](https://assetstore.unity.com/packages/2d/environments/tiles-and-hexes-2d-painted-terrain-samples-191945)**
+
 ## Acknowledgments
 
 *   Inspired by the original **King's Bounty** by Jon Van Caneghem & New World Computing.
