@@ -37,10 +37,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Project Structure
 
-Assets/KingsBounty  
-├── Scripts/ # All C# scripts  
-├── Scenes/ # Unity scene files  
+Assets/_KingsBounty  
+├── _Scenes/ # Unity scene files  
 ├── Prefabs/ # Prefabs for units, UI, etc.  
+├── Scripts/ # All C# scripts  
 ├── Art/ # Sprites and textures  
 └── Resources/ # Loadable assets (e.g., unit data)  
 
