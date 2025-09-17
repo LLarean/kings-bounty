@@ -41,13 +41,7 @@ namespace KingsBounty
                 return;
             }
             
-            if (_gameMap.GetCellType(newPosition) == CellType.Mount)
-            {
-                _velocity = Vector2.zero;
-                return;
-            }
-            
-            if (_gameMap.GetCellType(newPosition) == CellType.Forest)
+            if (_gameMap.GetCellType(newPosition) == CellType.Mountain)
             {
                 _velocity = Vector2.zero;
                 return;

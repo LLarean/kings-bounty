@@ -11,23 +11,10 @@ namespace KingsBounty
 
         public CellType CellType => _cellType;
         
-        public void SetCellType(CellType cellType)
+        public void SetCellType(CellType cellType, Sprite cellSprite)
         {
             _cellType = cellType;
-            _spriteRenderer.color = GetCellColor();
-        }
-        
-        private Color GetCellColor()
-        {
-            return _cellType switch
-            {
-                CellType.Ground => Color.gray,
-                CellType.Water => Color.blue,
-                CellType.Mount => Color.magenta,
-                CellType.Forest => Color.green,
-                CellType.Sand => Color.yellow,
-                _ => throw new ArgumentOutOfRangeException()
-            };
+            _spriteRenderer.sprite = cellSprite;
         }
     }
 }

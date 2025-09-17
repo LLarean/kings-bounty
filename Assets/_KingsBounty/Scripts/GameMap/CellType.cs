@@ -4,8 +4,8 @@
     {
         Ground,
         Water,
-        Mount,
+        Mountain,
         Forest,
-        Sand,
+        Desert,
     }
 }
