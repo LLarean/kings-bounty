@@ -508,6 +508,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1332923032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332923034}
+  - component: {fileID: 1332923033}
+  m_Layer: 0
+  m_Name: Enemies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1332923033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332923032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9924627a2a126247be8f11fd3b00f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemy: {fileID: 1861694898482640207, guid: 4e230d031cdbb5545be1b7794ba9731a, type: 3}
+--- !u!4 &1332923034
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332923032}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1484690876
 GameObject:
   m_ObjectHideFlags: 0
@@ -576,8 +621,7 @@ MonoBehaviour:
   _mountain: {fileID: 21300000, guid: 655d1825cbe189d4d97a48fbae36bdbe, type: 3}
   _forest: {fileID: 21300000, guid: 089ec694c2f50a748a5f490fa5616b5a, type: 3}
   _desert: {fileID: 21300000, guid: 87c7040ad207a684bac935f806313e07, type: 3}
-  _enemy: {fileID: 1861694898482640207, guid: 4e230d031cdbb5545be1b7794ba9731a, type: 3}
-  _enemiesCount: 3
+  _enemies: {fileID: 1332923033}
 --- !u!4 &2019348772
 Transform:
   m_ObjectHideFlags: 0
@@ -725,6 +769,7 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 965508224}
   - {fileID: 2019348772}
+  - {fileID: 1332923034}
   - {fileID: 1484690877}
   - {fileID: 592889325}
   - {fileID: 9094564306081044233}

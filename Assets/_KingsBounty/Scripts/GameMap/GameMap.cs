@@ -16,11 +16,9 @@ namespace KingsBounty
         [SerializeField] private Sprite _forest;
         [SerializeField] private Sprite _desert;
         [Space]
-        [SerializeField] private Enemy _enemy;
-        [SerializeField] private int _enemiesCount;
+        [SerializeField] private Enemies _enemies;
 
         private GroundCell[,] _groundCells;
-        private Enemy[,] _enemies;
 
         public CellType GetCellType(Vector2 position)
         {
@@ -51,25 +49,14 @@ namespace KingsBounty
         
         private void GenerateEnemies()
         {
-            var tryCount = 30;
-            for (int i = 0; i < _enemiesCount; i++)
-            {
-                for (int j = tryCount; j > 0; j--)
-                {
-                    var xPosition = Random.Range(-_sizeX / 2, _sizeX / 2);
-                    var yPosition = Random.Range(-_sizeY / 2, _sizeY / 2);
-
-                    if (GetCellType(new Vector2(xPosition, yPosition)) == CellType.Ground)
-                    {
-                        Enemy enemy = Instantiate(_enemy, transform);
-                        enemy.transform.localPosition = new Vector3(xPosition, yPosition);
-                    }
-
-                    tryCount--;
-                }
-            }
+            Vector2[] enemiesPositions = GetEnemiesPositions();
+            _enemies.Construct(0, enemiesPositions);
         }
 
+        private Vector2[] GetEnemiesPositions()
+        {
+            return Array.Empty<Vector2>();
+        }
 
         private void CreateCell(int xPosition, int yPosition)
         {
